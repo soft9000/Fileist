@@ -1,7 +1,7 @@
 # Fileist
 A place to share our never-ending list of file reporting &amp; management 'notions.
 
-Inspiring the project name, fileist.py contains a class, as well as a __C__ommand-__L__ine __I__nterface (CLI.)
+Inspiring the project name, fileist.py contains a class, as well as a **C**ommand-**L**ine **I**nterface (CLI.)
 
 Together, the mission of Fileist is to create a list of newest (default,) or oldest (-o) fully-qualified file names. -Those names being found in the 'pwd,' (also default) or a directory tree (-f.) 
 
