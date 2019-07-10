@@ -68,7 +68,7 @@ class Fileist:
                 self.total += 1
                 match = node.lower()
                 if not match.endswith(self.suffix):
-                    continue;
+                    continue
                 file = root + os.path.sep + node
                 try:
                     st = os.stat(file, follow_symlinks=False)
