@@ -5,7 +5,7 @@
 # Note: Our use of f-strings requires Python 3.6, or greater!
 
 ''' Fileist: Examine a file hirearchy, gathering a finite list
-of newest / oldest files that match a set commonly-required,
+of newest / oldest files that match a set of commonly-required,
 selection criteria. Includes a Command Line Interface (CLI.)
 '''
 
