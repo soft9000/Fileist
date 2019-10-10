@@ -36,7 +36,7 @@ def doMain():
         doJunker(10, source)
 
         while True:
-            copy = doCopy(source, dest)
+            doCopy(source, dest)
     except Exception as reason:
         print(reason)
     finally:
