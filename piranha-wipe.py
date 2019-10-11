@@ -8,7 +8,6 @@ completion rate, on a mountable volume.
 
 import os, time, random
 import shutil
-from io import BytesIO as BytesIO
 
 source = "/tmp/dumb"
 dest = "/media/profnagy/bashme"
