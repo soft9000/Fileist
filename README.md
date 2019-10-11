@@ -13,6 +13,6 @@ Simple but effective design. A CLI whose use case we find extremely usefull for 
 
 ***File:*** __piranha-wipe.py__
 
-Born out of our need to wipe-out a mountable partition / device _tan rapido como possible_, we used the phrase **piranha wipe** (no, it will not catch-on :) to describe using _several independant_ processes to bus-saturate such a content consuming process. -Just how many fish to loose on your unsusbecting drive, is left up to you.
+Born out of our need to wipe-out a mountable partition / device _tan rapido como possible_, we used the phrase **piranha wipe** (no, it will not catch-on :) to describe using _several independant_ processes to bus-saturate such a content consuming process. -Just how many fish to loose on your unsuspecting drive, is left up to you.
 
 More [at the blog](http://soft9000.com/blog9000/index.php?entry=Return-of-the-Piranha-...-%27Vipers?)
