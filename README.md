@@ -11,6 +11,10 @@ An optional file-suffix can be specified (-s), a truncated-display option (-x), 
 
 Simple but effective design. A CLI whose use case we find extremely usefull for resuming, as well as pruning, our Dev, as well as our Ops, efforts.
 
+***File:*** __dirist.py__
+
+Mission: Examine a folder hirearchy, gathering a finite list of small / large sub-trees that match a set commonly-required, reporting criteria. Includes a Command Line Interface (CLI.) Creates a pipe-delmited report (stdout), ready for further analysis / charting.
+
 ***File:*** __piranha-wipe.py__
 
 Born out of our need to wipe-out a mountable partition / device _tan rapido como possible_, we used the phrase **piranha wipe** (no, it will not catch-on :) to describe using _several independant_ processes to bus-saturate such a content consuming process. -Just how many fish to loose on your unsuspecting drive, is left up to you.
