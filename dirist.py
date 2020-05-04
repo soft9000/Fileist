@@ -64,8 +64,8 @@ class Dirist:
         self._root = self.normalize(root)
         self._depth = root.count(os.path.sep)
         self.results = {}
-        self.errors = 0
-        self.total = 0
+        self.total_errors = 0
+        self.total_files = 0
         self.show_errors_ = False
         self.show_verbose_= False
 
@@ -80,7 +80,8 @@ class Dirist:
         ''' Extract final report, and prep for next usage.
         '''
         results = []
-        for key in sorted(self.results, reverse=True):
+        sorted_ = sorted(self.results, key=lambda a: self.results[a].sigma)
+        for key in sorted_:
             zrow = OrderedDict()
             node = self.results[key]
             zrow["name"]   = node.name
@@ -99,9 +100,9 @@ class Dirist:
         self.show_verbose_ = bOn
 
     def on_error(self, file):
-        self.errors += 1
+        self.total_errors += 1
         if self.show_errors_:
-            print(f'\n *** Stat Error {self.errors}: {file}', file=sys.stderr)
+            print(f'\n *** Stat Error {self.total_errors}: {file}', file=sys.stderr)
             sys.stderr.flush()
 
     def on_success(self, file):
@@ -122,8 +123,8 @@ class Dirist:
 
     def _setup(self):
         self.results = {}
-        self.errors = 0
-        self.total  = 0
+        self.total_errors = 0
+        self.total_files  = 0
         self.on_define(self._root)
         for root, dirs, nodes in os.walk(self._root):
             for dir in dirs:
@@ -138,7 +139,7 @@ class Dirist:
         self._setup()
         for root, dirs, nodes in os.walk(self._root):
             for node in nodes:
-                self.total += 1
+                self.total_files += 1
                 file = root + os.path.sep + node
                 effective = self.normalize(file)
                 for key in sorted(self.results, reverse=True):
@@ -151,7 +152,7 @@ class Dirist:
                         effective = None
                         break
                 if effective:
-                    print(f"File error {effective}")
+                    self.on_error(effective)
  
         print()
         return self._cleanup()
@@ -163,9 +164,10 @@ if __name__ == '__main__':
     parser.add_argument("-f", "--folder", help="Folder search (else pwd.)")
     parser.add_argument("-e", "--errors", action='store_true', help="Errors to stderr.")
     parser.add_argument("-v", "--verbose", action='store_true', help="Show standard output.")
+    parser.add_argument("-t", "--total", action='store_true', help="Display final tally.")
     
     parsed = parser.parse_args()
-    # parsed = parser.parse_args(["-f", "c:\\d_drive\\USR\\code\Python3"])
+    # parsed = parser.parse_args(["-f", "c:\\d_drive\\USR\\code\Python3", "-t"])
 
     if not parsed.folder:
         parsed.folder = os.getcwd()
@@ -182,6 +184,9 @@ if __name__ == '__main__':
     print()
     sys.stdout.flush()
     sys.stderr.flush()
-    # print(f'Total: {walker.total}, No-Stat: {walker.errors}', file=sys.stderr)
-    # print("(done)", file=sys.stderr)
+    if parsed.total:
+        import locale
+        locale.setlocale(locale.LC_ALL, '') 
+        print(f'Total: {walker.total_files:n} No-Stat: {walker.total_errors:n}', file=sys.stderr)
+
  
