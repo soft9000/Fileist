@@ -1,5 +1,7 @@
 # Fileist
-A place to share our never-ending list of file reporting &amp; management 'notions.
+A place to share our never-ending list of file reporting &amp; management 'notions. -Now part of our DevOps educational opportunity!
+
+https://www.udemy.com/course/python-4000-gnu-devops
 
 ***File:*** __fileist.py__
 
@@ -14,6 +16,8 @@ Simple but effective design. A CLI whose use case we find extremely usefull for 
 ***File:*** __dirist.py__
 
 Mission: Examine a folder hirearchy, gathering a finite list of small / large sub-trees that match a set commonly-required, reporting criteria. Includes a Command Line Interface (CLI.) Creates a pipe-delmited report (stdout), ready for further analysis / charting.
+
+Here is the back-story + how-to video: https://www.youtube.com/watch?v=bs5yWwMTHIM
 
 ***File:*** __piranha-wipe.py__
 
