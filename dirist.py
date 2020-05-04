@@ -61,7 +61,7 @@ class Dirist:
         character sequence to match.'''
         if not root.endswith(os.path.sep):
             root += os.path.sep
-        self._root = root
+        self._root = self.normalize(root)
         self._depth = root.count(os.path.sep)
         self.results = {}
         self.errors = 0
@@ -80,7 +80,7 @@ class Dirist:
         ''' Extract final report, and prep for next usage.
         '''
         results = []
-        for key in self.results:
+        for key in sorted(self.results, reverse=True):
             zrow = OrderedDict()
             node = self.results[key]
             zrow["name"]   = node.name
@@ -110,24 +110,21 @@ class Dirist:
             sys.stdout.flush()
 
     def on_define(self, root):
-        self.results[root] = DirEntry(root)
+        self.results[root] = DirEntry(self.normalize(root, True))
         if self.show_verbose_:
             print("+", end='')
             sys.stdout.flush()
 
-    def normalize(self, root):
-        nodes = root.split(os.path.sep)
-        path = ''
-        for node in nodes[0:self._depth]:
-            path += node + os.path.sep
-        if not path.endswith(os.path.sep):
-            path = path + os.path.sep
-        return path
+    def normalize(self, root, is_dir=False):
+        if is_dir and not root.endswith(os.path.sep):
+            root += os.path.sep
+        return root.replace("\\", os.path.sep).replace("//", os.path.sep)
 
     def _setup(self):
         self.results = {}
         self.errors = 0
         self.total  = 0
+        self.on_define(self._root)
         for root, dirs, nodes in os.walk(self._root):
             for dir in dirs:
                 effective = root + dir
@@ -142,16 +139,19 @@ class Dirist:
         for root, dirs, nodes in os.walk(self._root):
             for node in nodes:
                 self.total += 1
-                effective = self.normalize(root)
-                file = root + node
-                for key in self.results:
+                file = root + os.path.sep + node
+                effective = self.normalize(file)
+                for key in sorted(self.results, reverse=True):
                     row = self.results[key]
-                    if row.is_member(file):
-                        if row.collect(file):
-                            self.on_success(file)
+                    if row.is_member(effective):
+                        if row.collect(effective):
+                            self.on_success(effective)
                         else:
-                            self.on_error(file)
+                            self.on_error(effective)
+                        effective = None
                         break
+                if effective:
+                    print(f"File error {effective}")
  
         print()
         return self._cleanup()
@@ -165,7 +165,7 @@ if __name__ == '__main__':
     parser.add_argument("-v", "--verbose", action='store_true', help="Show standard output.")
     
     parsed = parser.parse_args()
-    #parsed = parser.parse_args(["-f", "c:\\d_drive\\USR\\code\Python3"])
+    # parsed = parser.parse_args(["-f", "c:\\d_drive\\USR\\code\Python3"])
 
     if not parsed.folder:
         parsed.folder = os.getcwd()
