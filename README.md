@@ -1,5 +1,5 @@
 # Fileist
-A place to share our never-ending list of file reporting &amp; management 'notions. 
+A place to share our [never-ending list](https://github.com/TotalPythoneering/GreenTree9000) of file reporting &amp; management 'notions. 
 
 Shared to include an A.I session to match the code we just checked-in as part of '[Gig Success education](https://www.udemy.com/course/python-4000-gig-success/?referralCode=91DD0373A4C99D8F1A20),' and also part of our [DevOps educational opportunity](https://www.udemy.com/course/python-4000-gnu-devops/?referralCode=E04F0744698A4BE930D7) as well. 
 
@@ -25,4 +25,3 @@ Here is the back-story + how-to video: https://www.youtube.com/watch?v=bs5yWwMTH
 
 Born out of our need to wipe-out a mountable partition / device _tan rapido como possible_, we used the phrase **piranha wipe** (no, it will not catch-on :) to describe using _several independant_ processes to bus-saturate such a content consuming process. -Just how many fish to loose on your unsuspecting drive, is left up to you.
 
-More [at the blog](http://soft9000.com/blog9000/index.php?entry=Return-of-the-Piranha)
