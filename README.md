@@ -1,7 +1,7 @@
 # Fileist
 A place to share our [never-ending list](https://github.com/TotalPythoneering/GreenTree9000) of file reporting &amp; management 'notions. 
 
-Shared to include an A.I session to match the code we just checked-in as part of '[Gig Success education](https://www.udemy.com/course/python-4000-gig-success/?referralCode=91DD0373A4C99D8F1A20),' and also part of our [DevOps educational opportunity](https://www.udemy.com/course/python-4000-gnu-devops/?referralCode=E04F0744698A4BE930D7) as well. 
+Shared to include an A.I session to match the code we just checked-in as part of '[Gig Success education](https://www.udemy.com/course/python-4000-gig-success/?referralCode=91DD0373A4C99D8F1A20),' and also part of our [DevOps educational opportunity](https://www.manning.com/livevideo/python-for-devops) as well. 
 
 Pythoneers might also enjoy the new [Total Pythoneering](https://www.youtube.com/@TotalPythoneering) channel as well?
 
